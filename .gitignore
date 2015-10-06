@@ -1,0 +1,5 @@
+*.log
+index.html
+js/
+node_modules/
+dist/
