@@ -1,6 +1,6 @@
 # WIP: React Boilerplate
 
-For internal use: React, ES6, Webpack et al. No support provided.
+For internal use: React, Velocity-React, ES6, Webpack et al. No support provided.
 
 ## Development (hot reload)
 
