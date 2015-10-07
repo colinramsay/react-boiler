@@ -33,7 +33,9 @@ var config = {
 
   module: {
     loaders: [
-      {test: /\.js$/, exclude: /node_modules/, loaders: ['babel-loader']},
+      {
+        test: /\.jsx?$/, exclude: /node_modules/, loader: 'babel'
+      },
       {test: /\.css$/, loader: extractTextPlugin.extract('style-loader', 'css-loader')},
       {test: /\.svg/, loader: 'url?limit=' + embedFileSize + '&mimetype=image/svg+xml'},
       {test: /\.png$/, loader: 'url?limit=' + embedFileSize + '&mimetype=image/png'},
