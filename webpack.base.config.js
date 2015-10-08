@@ -5,7 +5,6 @@ var webpack = require('webpack'),
 
 var config = {
   entry: ['./js/index'],
-  devtool: 'source-map',
 
   output: {
     path: './dist',
@@ -23,11 +22,6 @@ var config = {
       'process.env': {
         'NODE_ENV': JSON.stringify('production')
       }
-    }),
-    new webpack.optimize.UglifyJsPlugin({
-      compressor: {
-        warnings: false
-      }
     })
   ],
 
@@ -44,6 +38,10 @@ var config = {
       {
         test: /\.(otf|eot|ttf|woff|woff2)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
         loader: 'url?limit=' + embedFileSize
+      },
+      {
+        test: /\.scss$/,
+        loaders: ["style", "css", "sass"]
       }
     ]
   }

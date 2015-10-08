@@ -5,8 +5,8 @@
   "description": "For internal use: React, ES6, Webpack",
   "main": "./src/index.js",
   "scripts": {
-    "dev": "./node_modules/.bin/webpack-dev-server --devtool eval --progress --inline --colors --hot --content-base ./",
-    "prod": "./node_modules/.bin/webpack --config webpack.config.production.js"
+    "dev": "./node_modules/.bin/webpack-dev-server --config webpack.dev.config.js --devtool eval --progress --inline --colors --hot --content-base ./",
+    "prod": "./node_modules/.bin/webpack -p --config webpack.prod.config.js"
   },
   "repository": {
     "type": "git",
