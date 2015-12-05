@@ -1,56 +1,42 @@
 /// <reference path="../typings/react/react-global.d.ts" />
+/// <reference path="../typings/react-router/react-router.d.ts" />
 
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
+import { Router, IndexRoute, Route, Link, History } from 'react-router';
 
 class One extends React.Component<any, any> {
     render() {
-        return <p>ONE</p>;
+        return <p><Link to="two">ONE</Link></p>;
     }
 }
 
 class Two extends React.Component<any, any> {
     render() {
-        return <p>TWO</p>
+        return <p><Link to="/">TWO</Link></p>
     }
 }
 
-interface AppState {
-    count: number
+class Home extends React.Component<any, any> {
+    render() {
+        return <p><Link to="one">Home</Link></p>
+    }
 }
 
-class App extends React.Component<any, AppState> {
-
-    constructor(props) {
-        super(props);
-        this.state = {
-            count: 0
-        };
-    }
-
-    componentDidMount() {
-        setInterval(() => {
-            this.setState({
-                count: this.state.count + 1
-            });
-        }, 1000);
-    }
-
+class App extends React.Component<any, any> {
     render() {  
-        var groupStyle = {
-          margin: '10px 0',
-        };
-    
-        let rows = [];
-    
-        for(let i = 0; i < this.state.count; i++) {
-          rows.push(<One />);
-        }
-    
         return <div>
-            {rows}
+            {this.props.children}
         </div>
     }
 }
 
-ReactDOM.render(<App />, document.querySelector('.container'));
+const routes = <Router>
+    <Route path="/" component={App}>
+        <IndexRoute component={Home} />
+        <Route path="one" component={One} />
+        <Route path="two" component={Two} />
+    </Route>
+</Router>
+
+ReactDOM.render(routes, document.querySelector('.container'));
