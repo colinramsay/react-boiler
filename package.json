@@ -15,9 +15,8 @@
   "author": "Colin Ramsay",
   "license": "MIT",
   "dependencies": {
-    "react": "^0.13.3",
-    "velocity-animate": "^1.2.3",
-    "velocity-react": "^1.0.1"
+    "react": "^0.14.3",
+    "react-dom": "^0.14.3"
   },
   "devDependencies": {
     "babel": "^5.8.23",
@@ -26,6 +25,8 @@
     "extract-text-webpack-plugin": "^0.8.2",
     "file-loader": "^0.8.4",
     "style-loader": "^0.12.4",
+    "ts-loader": "^0.7.2",
+    "typescript": "^1.7.3",
     "url-loader": "^0.5.6",
     "webpack": "^1.12.2",
     "webpack-dev-server": "^1.12.0"

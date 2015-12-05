@@ -4,9 +4,7 @@ var webpack = require('webpack');
 config.plugins.concat([
     new webpack.optimize.DedupePlugin(),
     new webpack.optimize.UglifyJsPlugin({
-    mangle: {
-        except: ['require', 'export', '$super']
-    },
+    minimize: true,
     compress: {
         warnings: false,
         sequences: true,

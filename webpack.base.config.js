@@ -4,17 +4,17 @@ var webpack = require('webpack'),
     embedFileSize = 64000;
 
 var config = {
-  entry: ['./js/index'],
+  entry: ['./src/main'],
 
   output: {
     path: './dist',
-    filename: 'index.min.js',
+    filename: 'main.min.js',
     publicPath: '/dist/'
   },
 
   resolve: {
-    modulesDirectories: ['node_modules', './js'],
-    extensions: ['', '.js', '.jsx']
+    modulesDirectories: ['node_modules', './src'],
+    extensions: ['', '.js', '.jsx', '.ts', '.tsx']
   },
 
   plugins: [
@@ -30,6 +30,7 @@ var config = {
       {
         test: /\.jsx?$/, exclude: /node_modules/, loader: 'babel'
       },
+      { test: /\.tsx?$/, exclude: /node_modules/, loader: 'babel-loader!ts-loader' },
       {test: /\.css$/, loader: extractTextPlugin.extract('style-loader', 'css-loader')},
       {test: /\.svg/, loader: 'url?limit=' + embedFileSize + '&mimetype=image/svg+xml'},
       {test: /\.png$/, loader: 'url?limit=' + embedFileSize + '&mimetype=image/png'},
